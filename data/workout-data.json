@@ -54,7 +54,7 @@
       "dayLabel": "Saturday",
       "exercises": [
         { "id": "romanian-deadlift", "name": "Barbell Romanian Deadlift", "sets": 4, "repsTarget": 8, "repsRange": "8-10", "weight": 60, "unit": "kg" },
-        { "id": "reverse-lunge", "name": "Dumbbell Reverse Lunge", "sets": 3, "repsTarget": 10, "repsRange": "10-12/leg", "weight": 50, "unit": "kg" },
+        { "id": "reverse-lunge", "name": "Barbell Reverse Lunge", "sets": 3, "repsTarget": 10, "repsRange": "10-12/leg", "weight": 50, "unit": "kg" },
         { "id": "seated-calf-raise", "name": "Dumbbell Seated Calf Raise", "sets": 3, "repsTarget": 15, "repsRange": "15-20", "weight": 20, "unit": "kg" },
         { "id": "glute-bridge", "name": "Barbell Glute Bridge", "sets": 4, "repsTarget": 8, "repsRange": "8-10", "weight": 20, "unit": "kg" },
         { "id": "leg-raises-c", "name": "Abs - Leg Raises", "sets": 3, "repsTarget": 10, "repsRange": "10", "weight": 0, "unit": "none" }

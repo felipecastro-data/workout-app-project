@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Workout Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="menu">
+    <h1 class="menu-title">Workout Tracker</h1>
+
+    <div class="day-card" data-day-id="lower-a">
+      <span class="day-card-name">Lower A</span>
+      <span class="day-card-label">Tuesday</span>
+    </div>
+
+    <div class="day-card" data-day-id="upper-pull">
+      <span class="day-card-name">Upper Pull</span>
+      <span class="day-card-label">Wednesday</span>
+    </div>
+
+    <div class="day-card" data-day-id="lower-b">
+      <span class="day-card-name">Lower B</span>
+      <span class="day-card-label">Thursday</span>
+    </div>
+
+    <div class="day-card" data-day-id="upper-push">
+      <span class="day-card-name">Upper Push</span>
+      <span class="day-card-label">Friday</span>
+    </div>
+
+    <div class="day-card" data-day-id="lower-c">
+      <span class="day-card-name">Lower C</span>
+      <span class="day-card-label">Saturday</span>
+    </div>
+
+    <button class="reset-button" id="reset-button" type="button">Reset Progress</button>
+  </main>
+
+  <div id="day-view" class="day-view hidden">
+    <button class="back-button" id="back-button" type="button">&larr; Back</button>
+    <h1 class="day-view-title" id="day-view-title"></h1>
+    <ul class="exercise-list" id="exercise-list"></ul>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

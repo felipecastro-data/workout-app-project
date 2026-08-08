@@ -4,14 +4,38 @@
   padding: 0;
 }
 
+:root {
+  --accent-gradient: linear-gradient(135deg, #8B5CF6, #22D3EE);
+  --glow-purple: rgba(139, 92, 246, 0.55);
+  --glow-cyan: rgba(34, 211, 238, 0.45);
+  --glass-bg: rgba(28, 28, 30, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.08);
+}
+
 body {
   background: #121212;
   color: #f2f2f2;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(139, 92, 246, 0.35), transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(34, 211, 238, 0.28), transparent 50%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .menu {
+  position: relative;
+  z-index: 1;
   max-width: 430px;
   margin: 0 auto;
   padding: 32px 20px;
@@ -23,7 +47,8 @@ body {
 
 .menu-title {
   font-size: 22px;
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   margin-bottom: 8px;
 }
 
@@ -31,45 +56,66 @@ body {
   margin-top: 16px;
   min-height: 44px;
   padding: 12px 20px;
-  background: none;
-  border: 1px solid #4a2020;
+  background: rgba(224, 100, 92, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(224, 100, 92, 0.35);
   border-radius: 12px;
   color: #e0645c;
   font-size: 15px;
   font-weight: 600;
   font-family: inherit;
   cursor: pointer;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.reset-button:active {
+  border-color: rgba(224, 100, 92, 0.6);
+  box-shadow: 0 0 16px rgba(224, 100, 92, 0.35);
 }
 
 .day-card {
-  background: #1c1c1e;
-  border: 1px solid #2c2c2e;
+  border: 1px solid transparent;
   border-radius: 16px;
+  background:
+    linear-gradient(var(--glass-bg), var(--glass-bg)) padding-box,
+    linear-gradient(135deg, #2c2c2e, #2c2c2e) border-box;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: inset 0 1px 0 var(--glass-border), 0 8px 24px rgba(0, 0, 0, 0.35);
   padding: 20px;
   min-height: 44px;
   display: flex;
   flex-direction: column;
   gap: 4px;
   cursor: pointer;
-  transition: border-color 0.15s ease, transform 0.15s ease;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
 }
 
 .day-card:active {
-  border-color: #8b5cf6;
+  background:
+    linear-gradient(var(--glass-bg), var(--glass-bg)) padding-box,
+    var(--accent-gradient) border-box;
   transform: scale(0.98);
+  box-shadow: inset 0 1px 0 var(--glass-border), 0 0 24px var(--glow-purple), 0 0 40px var(--glow-cyan);
 }
 
 .day-card-name {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 800;
+  letter-spacing: -0.01em;
 }
 
 .day-card-label {
   font-size: 14px;
+  font-weight: 400;
   color: #8b5cf6;
+  opacity: 0.85;
 }
 
 .day-view {
+  position: relative;
+  z-index: 1;
   max-width: 430px;
   margin: 0 auto;
   padding: 32px 20px;
@@ -83,9 +129,12 @@ body {
   align-self: flex-start;
   background: none;
   border: none;
-  color: #8b5cf6;
+  color: transparent;
+  background-image: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
   padding: 10px 4px;
   min-height: 44px;
   cursor: pointer;
@@ -93,7 +142,8 @@ body {
 
 .day-view-title {
   font-size: 22px;
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   margin-bottom: 8px;
 }
 
@@ -105,9 +155,12 @@ body {
 }
 
 .exercise-item {
-  background: #1c1c1e;
-  border: 1px solid #2c2c2e;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
   border-radius: 16px;
+  box-shadow: inset 0 1px 0 var(--glass-border), 0 8px 24px rgba(0, 0, 0, 0.3);
   overflow: hidden;
 }
 
@@ -122,7 +175,8 @@ body {
   justify-content: space-between;
   gap: 12px;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 800;
+  letter-spacing: -0.01em;
   font-family: inherit;
   color: #f2f2f2;
   cursor: pointer;
@@ -130,18 +184,30 @@ body {
 }
 
 .exercise-check {
-  color: #8b5cf6;
+  color: transparent;
+  background-image: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
   font-size: 18px;
   visibility: hidden;
+  filter: drop-shadow(0 0 6px var(--glow-purple)) drop-shadow(0 0 10px var(--glow-cyan));
 }
 
 .exercise-header.completed .exercise-name {
   color: #9a9a9e;
   text-decoration: line-through;
+  transition: color 0.2s ease;
 }
 
 .exercise-header.completed .exercise-check {
   visibility: visible;
+  animation: checkPop 0.4s ease;
+}
+
+@keyframes checkPop {
+  0% { transform: scale(0.5); opacity: 0; }
+  60% { transform: scale(1.25); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
 }
 
 .exercise-controls {
@@ -157,6 +223,7 @@ body {
   flex-direction: column;
   gap: 6px;
   font-size: 13px;
+  font-weight: 400;
   color: #9a9a9e;
 }
 
@@ -165,17 +232,21 @@ body {
   min-width: 0;
   min-height: 44px;
   padding: 0 12px;
-  background: #121212;
+  background: rgba(18, 18, 18, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid #2c2c2e;
   border-radius: 10px;
   color: #f2f2f2;
   font-size: 16px;
   font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .field input[type="number"]:focus {
   outline: none;
-  border-color: #8b5cf6;
+  border-color: transparent;
+  box-shadow: 0 0 0 2px var(--glow-purple), 0 0 12px var(--glow-cyan);
 }
 
 .set-list {
@@ -194,11 +265,47 @@ body {
   cursor: pointer;
 }
 
+.set-row span {
+  color: rgba(242, 242, 242, 0.7);
+  font-weight: 400;
+}
+
 .set-row input[type="checkbox"] {
-  width: 22px;
-  height: 22px;
-  accent-color: #8b5cf6;
+  appearance: none;
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: 7px;
+  border: 1.5px solid #3a3a3e;
+  background: rgba(255, 255, 255, 0.03);
   cursor: pointer;
+  position: relative;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.set-row input[type="checkbox"]:checked {
+  background-image: var(--accent-gradient);
+  border-color: transparent;
+  animation: checkPulse 0.45s ease;
+}
+
+.set-row input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 3px;
+  width: 6px;
+  height: 11px;
+  border: solid #ffffff;
+  border-width: 0 2.5px 2.5px 0;
+  transform: rotate(45deg);
+}
+
+@keyframes checkPulse {
+  0% { box-shadow: 0 0 0 0 var(--glow-purple); }
+  70% { box-shadow: 0 0 0 10px rgba(139, 92, 246, 0); }
+  100% { box-shadow: 0 0 10px var(--glow-purple), 0 0 18px var(--glow-cyan); }
 }
 
 .hidden {

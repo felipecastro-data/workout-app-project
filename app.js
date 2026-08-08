@@ -13,6 +13,12 @@ fetch('data/workout-data.json')
     workoutDays = data.days;
   });
 
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js');
+  });
+}
+
 document.querySelectorAll('.day-card').forEach(card => {
   card.addEventListener('click', () => {
     const dayId = card.dataset.dayId;

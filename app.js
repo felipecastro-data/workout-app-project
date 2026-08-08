@@ -11,6 +11,7 @@ fetch('data/workout-data.json')
   .then(res => res.json())
   .then(data => {
     workoutDays = data.days;
+    updateDayCardProgress();
   });
 
 if ('serviceWorker' in navigator) {
@@ -31,6 +32,7 @@ document.querySelectorAll('.day-card').forEach(card => {
 backButton.addEventListener('click', () => {
   dayView.classList.add('hidden');
   menu.classList.remove('hidden');
+  updateDayCardProgress();
 });
 
 resetButton.addEventListener('click', () => {
@@ -40,6 +42,8 @@ resetButton.addEventListener('click', () => {
   Object.keys(localStorage)
     .filter(key => setKeyPattern.test(key))
     .forEach(key => localStorage.removeItem(key));
+
+  updateDayCardProgress();
 });
 
 function showDayView(day) {
@@ -179,4 +183,32 @@ function updateCompletedState(exerciseItem) {
   const allChecked = Array.from(checkboxes).every(cb => cb.checked);
   const header = exerciseItem.querySelector('.exercise-header');
   header.classList.toggle('completed', allChecked);
+}
+
+function isExerciseComplete(dayId, exercise) {
+  for (let i = 0; i < exercise.sets; i++) {
+    if (localStorage.getItem(getCheckKey(dayId, exercise.id, i)) !== 'true') {
+      return false;
+    }
+  }
+  return true;
+}
+
+function updateDayCardProgress() {
+  workoutDays.forEach(day => {
+    const card = document.querySelector(`.day-card[data-day-id="${day.id}"]`);
+    if (!card) return;
+
+    const total = day.exercises.length;
+    const completed = day.exercises.filter(ex => isExerciseComplete(day.id, ex)).length;
+
+    const ring = card.querySelector('.ring-progress');
+    const radius = ring.r.baseVal.value;
+    const circumference = 2 * Math.PI * radius;
+    const fraction = total === 0 ? 0 : completed / total;
+
+    ring.style.strokeDasharray = `${circumference}`;
+    ring.style.strokeDashoffset = `${circumference * (1 - fraction)}`;
+    card.querySelector('.progress-text').textContent = `${completed}/${total}`;
+  });
 }

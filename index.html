@@ -15,32 +15,86 @@
   <meta name="apple-mobile-web-app-title" content="Workout">
 </head>
 <body>
+  <svg width="0" height="0" style="position: absolute">
+    <defs>
+      <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#8B5CF6" />
+        <stop offset="100%" stop-color="#22D3EE" />
+      </linearGradient>
+    </defs>
+  </svg>
+
   <main class="menu">
     <h1 class="menu-title">Workout Tracker</h1>
 
     <div class="day-card" data-day-id="lower-a">
-      <span class="day-card-name">Lower A</span>
-      <span class="day-card-label">Tuesday</span>
+      <div class="day-card-info">
+        <span class="day-card-name">Lower A</span>
+        <span class="day-card-label">Tuesday</span>
+      </div>
+      <div class="progress-ring">
+        <svg viewBox="0 0 44 44">
+          <circle class="ring-track" cx="22" cy="22" r="18" />
+          <circle class="ring-progress" cx="22" cy="22" r="18" transform="rotate(-90 22 22)" />
+        </svg>
+        <span class="progress-text">0/0</span>
+      </div>
     </div>
 
     <div class="day-card" data-day-id="upper-pull">
-      <span class="day-card-name">Upper Pull</span>
-      <span class="day-card-label">Wednesday</span>
+      <div class="day-card-info">
+        <span class="day-card-name">Upper Pull</span>
+        <span class="day-card-label">Wednesday</span>
+      </div>
+      <div class="progress-ring">
+        <svg viewBox="0 0 44 44">
+          <circle class="ring-track" cx="22" cy="22" r="18" />
+          <circle class="ring-progress" cx="22" cy="22" r="18" transform="rotate(-90 22 22)" />
+        </svg>
+        <span class="progress-text">0/0</span>
+      </div>
     </div>
 
     <div class="day-card" data-day-id="lower-b">
-      <span class="day-card-name">Lower B</span>
-      <span class="day-card-label">Thursday</span>
+      <div class="day-card-info">
+        <span class="day-card-name">Lower B</span>
+        <span class="day-card-label">Thursday</span>
+      </div>
+      <div class="progress-ring">
+        <svg viewBox="0 0 44 44">
+          <circle class="ring-track" cx="22" cy="22" r="18" />
+          <circle class="ring-progress" cx="22" cy="22" r="18" transform="rotate(-90 22 22)" />
+        </svg>
+        <span class="progress-text">0/0</span>
+      </div>
     </div>
 
     <div class="day-card" data-day-id="upper-push">
-      <span class="day-card-name">Upper Push</span>
-      <span class="day-card-label">Friday</span>
+      <div class="day-card-info">
+        <span class="day-card-name">Upper Push</span>
+        <span class="day-card-label">Friday</span>
+      </div>
+      <div class="progress-ring">
+        <svg viewBox="0 0 44 44">
+          <circle class="ring-track" cx="22" cy="22" r="18" />
+          <circle class="ring-progress" cx="22" cy="22" r="18" transform="rotate(-90 22 22)" />
+        </svg>
+        <span class="progress-text">0/0</span>
+      </div>
     </div>
 
     <div class="day-card" data-day-id="lower-c">
-      <span class="day-card-name">Lower C</span>
-      <span class="day-card-label">Saturday</span>
+      <div class="day-card-info">
+        <span class="day-card-name">Lower C</span>
+        <span class="day-card-label">Saturday</span>
+      </div>
+      <div class="progress-ring">
+        <svg viewBox="0 0 44 44">
+          <circle class="ring-track" cx="22" cy="22" r="18" />
+          <circle class="ring-progress" cx="22" cy="22" r="18" transform="rotate(-90 22 22)" />
+        </svg>
+        <span class="progress-text">0/0</span>
+      </div>
     </div>
 
     <button class="reset-button" id="reset-button" type="button">Reset</button>

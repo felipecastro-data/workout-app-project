@@ -127,8 +127,11 @@ function buildExerciseItem(exercise, dayId) {
   repsField.appendChild(repsInput);
   controls.appendChild(repsField);
 
+  const setSection = document.createElement('div');
+  setSection.className = 'set-section hidden';
+
   const setList = document.createElement('div');
-  setList.className = 'set-list hidden';
+  setList.className = 'set-list';
   const repsTextSpans = [];
 
   for (let i = 0; i < exercise.sets; i++) {
@@ -165,15 +168,30 @@ function buildExerciseItem(exercise, dayId) {
     });
   });
 
+  setSection.appendChild(setList);
+
+  if (exercise.image) {
+    const imageCard = document.createElement('div');
+    imageCard.className = 'exercise-image';
+
+    const img = document.createElement('img');
+    img.src = exercise.image;
+    img.alt = `${exercise.name} diagram`;
+    img.loading = 'lazy';
+
+    imageCard.appendChild(img);
+    setSection.appendChild(imageCard);
+  }
+
   header.addEventListener('click', () => {
     li.classList.toggle('expanded');
     controls.classList.toggle('hidden');
-    setList.classList.toggle('hidden');
+    setSection.classList.toggle('hidden');
   });
 
   li.appendChild(header);
   li.appendChild(controls);
-  li.appendChild(setList);
+  li.appendChild(setSection);
   updateCompletedState(li);
   return li;
 }

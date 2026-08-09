@@ -6,7 +6,7 @@
       "dayLabel": "Tuesday",
       "exercises": [
         { "id": "back-squat", "name": "Barbell Back Squat", "sets": 4, "repsTarget": 8, "repsRange": "8-10", "weight": 50, "unit": "kg" },
-        { "id": "calf-raises", "name": "Barbell Standing Calf Raises", "sets": 4, "repsTarget": 15, "repsRange": "12-15", "weight": 60, "unit": "kg" },
+        { "id": "calf-raises", "name": "Dumbbell Standing Calf Raises", "sets": 4, "repsTarget": 15, "repsRange": "12-15", "weight": 60, "unit": "kg" },
         { "id": "bulgarian-split-squat", "name": "Dumbbell Bulgarian Split Squat", "sets": 3, "repsTarget": 8, "repsRange": "8-10", "weight": 18, "unit": "kg" },
         { "id": "leg-raises-a", "name": "Abs - Leg Raises", "sets": 3, "repsTarget": 10, "repsRange": "10", "weight": 0, "unit": "none" }
       ]
@@ -16,7 +16,7 @@
       "name": "Upper Pull",
       "dayLabel": "Wednesday",
       "exercises": [
-        { "id": "barbell-row", "name": "Barbell Row (Pronate 45° Grip)", "sets": 4, "repsTarget": 10, "repsRange": "8-10", "weight": 50, "unit": "kg" },
+        { "id": "barbell-row", "name": "Dumbbell Row", "sets": 4, "repsTarget": 10, "repsRange": "8-10", "weight": 50, "unit": "kg" },
         { "id": "rear-delt-fly", "name": "Dumbbell Rear Delt Fly", "sets": 4, "repsTarget": 12, "repsRange": "12-15", "weight": 10, "unit": "kg" },
         { "id": "hammer-curl", "name": "Dumbbell Hammer Curl", "sets": 3, "repsTarget": 12, "repsRange": "10-12", "weight": 16, "unit": "kg" },
         { "id": "pull-up", "name": "Wide Grip Weighted Pull Up", "sets": 4, "repsTarget": 8, "repsRange": "6-8", "weight": 14, "unit": "kg" },
@@ -28,7 +28,7 @@
       "name": "Lower B",
       "dayLabel": "Thursday",
       "exercises": [
-        { "id": "front-squat", "name": "Barbell Front Squat", "sets": 3, "repsTarget": 12, "repsRange": "12-15", "weight": 30, "unit": "kg" },
+        { "id": "front-squat", "name": "Dumbbell Front Squat", "sets": 3, "repsTarget": 12, "repsRange": "12-15", "weight": 30, "unit": "kg" },
         { "id": "stationary-lunge", "name": "Dumbbell Stationary Lunge", "sets": 3, "repsTarget": 12, "repsRange": "12/leg", "weight": 12, "unit": "kg" },
         { "id": "single-leg-rdl", "name": "Dumbbell Single-Leg RDL", "sets": 3, "repsTarget": 10, "repsRange": "10-12/leg", "weight": 12, "unit": "kg" },
         { "id": "goblet-squat", "name": "Dumbbell Goblet Squat", "sets": 3, "repsTarget": 15, "repsRange": "15", "weight": 20, "unit": "kg" },
@@ -41,7 +41,7 @@
       "dayLabel": "Friday",
       "exercises": [
         { "id": "shoulder-press", "name": "Dumbbell Shoulder Press", "sets": 4, "repsTarget": 8, "repsRange": "10-12", "weight": 16, "unit": "kg" },
-        { "id": "tricep-overhead", "name": "Tricep Overhead Extension", "sets": 4, "repsTarget": 10, "repsRange": "10-12", "weight": 24, "unit": "kg" },
+        { "id": "tricep-overhead", "name": "Dumbbell Tricep Overhead Extension", "sets": 4, "repsTarget": 10, "repsRange": "10-12", "weight": 24, "unit": "kg" },
         { "id": "lateral-raises", "name": "Dumbbell Lateral Raises", "sets": 4, "repsTarget": 12, "repsRange": "12-15", "weight": 10, "unit": "kg" },
         { "id": "incline-bench", "name": "Dumbbell Incline Bench Press", "sets": 3, "repsTarget": 10, "repsRange": "8-10", "weight": 20, "unit": "kg" },
         { "id": "weighted-dips", "name": "Weighted Dips", "sets": 4, "repsTarget": 10, "repsRange": "8-10", "weight": 10, "unit": "kg" },
@@ -53,10 +53,10 @@
       "name": "Lower C",
       "dayLabel": "Saturday",
       "exercises": [
-        { "id": "romanian-deadlift", "name": "Barbell Romanian Deadlift", "sets": 4, "repsTarget": 8, "repsRange": "8-10", "weight": 60, "unit": "kg" },
-        { "id": "reverse-lunge", "name": "Barbell Reverse Lunge", "sets": 3, "repsTarget": 10, "repsRange": "10-12/leg", "weight": 50, "unit": "kg" },
-        { "id": "seated-calf-raise", "name": "Dumbbell Seated Calf Raise", "sets": 3, "repsTarget": 15, "repsRange": "15-20", "weight": 20, "unit": "kg" },
-        { "id": "glute-bridge", "name": "Barbell Glute Bridge", "sets": 4, "repsTarget": 8, "repsRange": "8-10", "weight": 20, "unit": "kg" },
+        { "id": "romanian-deadlift", "name": "Dumbbell Romanian Deadlift", "sets": 4, "repsTarget": 8, "repsRange": "8-10", "weight": 60, "unit": "kg" },
+        { "id": "reverse-lunge", "name": "Dumbbell Reverse Lunge", "sets": 3, "repsTarget": 10, "repsRange": "10-12/leg", "weight": 50, "unit": "kg" },
+        { "id": "seated-calf-raise", "name": "Seated Calf Raise", "sets": 3, "repsTarget": 15, "repsRange": "15-20", "weight": 20, "unit": "kg" },
+        { "id": "glute-bridge", "name": "Hammer Strength Glute Drive", "sets": 4, "repsTarget": 8, "repsRange": "8-10", "weight": 20, "unit": "kg" },
         { "id": "leg-raises-c", "name": "Abs - Leg Raises", "sets": 3, "repsTarget": 10, "repsRange": "10", "weight": 0, "unit": "none" }
       ]
     }

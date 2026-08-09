@@ -296,7 +296,7 @@ body::before {
 
 .set-section {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
   padding: 0 20px 16px;
 }

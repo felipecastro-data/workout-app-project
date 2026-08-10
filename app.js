@@ -6,6 +6,10 @@ const dayViewTitle = document.getElementById('day-view-title');
 const exerciseList = document.getElementById('exercise-list');
 const backButton = document.getElementById('back-button');
 const resetButton = document.getElementById('reset-button');
+const dayProgressFill = document.getElementById('day-progress-fill');
+const dayProgressText = document.getElementById('day-progress-text');
+const confettiCanvas = document.getElementById('confetti-canvas');
+const celebrationMessage = document.getElementById('celebration-message');
 
 fetch('data/workout-data.json')
   .then(res => res.json())
@@ -51,11 +55,12 @@ function showDayView(day) {
 
   exerciseList.innerHTML = '';
   day.exercises.forEach(exercise => {
-    exerciseList.appendChild(buildExerciseItem(exercise, day.id));
+    exerciseList.appendChild(buildExerciseItem(exercise, day));
   });
 
   menu.classList.add('hidden');
   dayView.classList.remove('hidden');
+  updateDayProgressBar(day);
 }
 
 function getCheckKey(dayId, exerciseId, setIndex) {
@@ -66,7 +71,8 @@ function getFieldKey(dayId, exerciseId, field) {
   return `workout:${dayId}:${exerciseId}:${field}`;
 }
 
-function buildExerciseItem(exercise, dayId) {
+function buildExerciseItem(exercise, day) {
+  const dayId = day.id;
   const li = document.createElement('li');
   li.className = 'exercise-item';
 
@@ -158,6 +164,11 @@ function buildExerciseItem(exercise, dayId) {
         localStorage.removeItem(checkKey);
       }
       updateCompletedState(li);
+
+      const { completed, total } = updateDayProgressBar(day);
+      if (checkbox.checked && total > 0 && completed === total) {
+        celebrateDayComplete();
+      }
     });
   }
 
@@ -212,14 +223,18 @@ function isExerciseComplete(dayId, exercise) {
   return true;
 }
 
+function getDayProgress(day) {
+  const total = day.exercises.length;
+  const completed = day.exercises.filter(ex => isExerciseComplete(day.id, ex)).length;
+  return { completed, total };
+}
+
 function updateDayCardProgress() {
   workoutDays.forEach(day => {
     const card = document.querySelector(`.day-card[data-day-id="${day.id}"]`);
     if (!card) return;
 
-    const total = day.exercises.length;
-    const completed = day.exercises.filter(ex => isExerciseComplete(day.id, ex)).length;
-
+    const { completed, total } = getDayProgress(day);
     const ring = card.querySelector('.ring-progress');
     const radius = ring.r.baseVal.value;
     const circumference = 2 * Math.PI * radius;
@@ -229,4 +244,68 @@ function updateDayCardProgress() {
     ring.style.strokeDashoffset = `${circumference * (1 - fraction)}`;
     card.querySelector('.progress-text').textContent = `${completed}/${total}`;
   });
+}
+
+function updateDayProgressBar(day) {
+  const { completed, total } = getDayProgress(day);
+  const fraction = total === 0 ? 0 : completed / total;
+
+  dayProgressFill.style.width = `${fraction * 100}%`;
+  dayProgressText.textContent = `${completed}/${total} exercises complete`;
+
+  return { completed, total };
+}
+
+function celebrateDayComplete() {
+  celebrationMessage.classList.add('visible');
+  setTimeout(() => celebrationMessage.classList.remove('visible'), 2200);
+
+  const ctx = confettiCanvas.getContext('2d');
+  confettiCanvas.width = window.innerWidth;
+  confettiCanvas.height = window.innerHeight;
+
+  const colors = ['#8B5CF6', '#22D3EE', '#f2f2f2', '#5B93FF'];
+  const particles = Array.from({ length: 100 }, () => ({
+    x: Math.random() * confettiCanvas.width,
+    y: -20 - Math.random() * confettiCanvas.height * 0.3,
+    size: 4 + Math.random() * 5,
+    color: colors[Math.floor(Math.random() * colors.length)],
+    vx: (Math.random() - 0.5) * 3,
+    vy: 2 + Math.random() * 3,
+    rotation: Math.random() * 360,
+    rotationSpeed: (Math.random() - 0.5) * 12,
+  }));
+
+  const duration = 2800;
+  const start = performance.now();
+
+  function frame(now) {
+    const elapsed = now - start;
+    ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+
+    const fadeOut = elapsed > duration - 500 ? Math.max(0, (duration - elapsed) / 500) : 1;
+
+    particles.forEach(p => {
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vy += 0.03;
+      p.rotation += p.rotationSpeed;
+
+      ctx.save();
+      ctx.globalAlpha = fadeOut;
+      ctx.translate(p.x, p.y);
+      ctx.rotate((p.rotation * Math.PI) / 180);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+      ctx.restore();
+    });
+
+    if (elapsed < duration) {
+      requestAnimationFrame(frame);
+    } else {
+      ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+    }
+  }
+
+  requestAnimationFrame(frame);
 }

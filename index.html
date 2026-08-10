@@ -104,7 +104,17 @@
     <button class="back-button" id="back-button" type="button">&larr; Back</button>
     <h1 class="day-view-title" id="day-view-title"></h1>
     <ul class="exercise-list" id="exercise-list"></ul>
+
+    <div class="day-progress">
+      <div class="day-progress-track">
+        <div class="day-progress-fill" id="day-progress-fill"></div>
+      </div>
+      <span class="day-progress-text" id="day-progress-text">0/0 exercises complete</span>
+    </div>
   </div>
+
+  <canvas id="confetti-canvas"></canvas>
+  <div id="celebration-message">Day complete! 🎉</div>
 
   <script src="app.js"></script>
 </body>

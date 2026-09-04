@@ -20,7 +20,7 @@
         { "id": "rear-delt-fly", "name": "Dumbbell Rear Delt Fly", "sets": 4, "repsTarget": 12, "repsRange": "12-15", "weight": 10, "unit": "kg", "image": "icons/exercises/dumbbell-rear-delt-fly.png" },
         { "id": "hammer-curl", "name": "Dumbbell Hammer Curl", "sets": 3, "repsTarget": 12, "repsRange": "10-12", "weight": 16, "unit": "kg", "image": "icons/exercises/dumbbell-hammer-curl.png" },
         { "id": "pull-up", "name": "Wide Grip Weighted Pull Up", "sets": 4, "repsTarget": 8, "repsRange": "6-8", "weight": 14, "unit": "kg", "image": "icons/exercises/wide-grip-weighted-pull-up.png" },
-        { "id": "leg-raises-b", "name": "Abs - Leg Raises", "sets": 3, "repsTarget": 10, "repsRange": "10", "weight": 0, "unit": "none", "image": "icons/exercises/abs-leg-raises.png" }
+        { "id": "knee-raises-a", "name": "Abs - Weighted Knee Raises", "sets": 3, "repsTarget": 10, "repsRange": "10", "weight": 12, "unit": "kg", "image": "icons/exercises/abs-weighted-knee-raises.png" }
       ]
     },
     {
@@ -32,7 +32,7 @@
         { "id": "stationary-lunge", "name": "Dumbbell Stationary Lunge", "sets": 3, "repsTarget": 12, "repsRange": "12/leg", "weight": 12, "unit": "kg", "image": "icons/exercises/dumbbell-stationary-lunge.png" },
         { "id": "single-leg-rdl", "name": "Dumbbell Single-Leg RDL", "sets": 3, "repsTarget": 10, "repsRange": "10-12/leg", "weight": 12, "unit": "kg", "image": "icons/exercises/dumbbell-single-leg-rdl.png" },
         { "id": "goblet-squat", "name": "Dumbbell Goblet Squat", "sets": 3, "repsTarget": 15, "repsRange": "15", "weight": 20, "unit": "kg", "image": "icons/exercises/dumbbell-globet-squat.png" },
-        { "id": "knee-raises-b", "name": "Abs - Weighted Knee Raises", "sets": 3, "repsTarget": 10, "repsRange": "10", "weight": 12, "unit": "kg", "image": "icons/exercises/abs-weighted-knee-raises.png" }
+        { "id": "leg-raises-b", "name": "Abs - Leg Raises", "sets": 3, "repsTarget": 10, "repsRange": "10", "weight": 0, "unit": "none", "image": "icons/exercises/abs-leg-raises.png" }
       ]
     },
     {
@@ -45,7 +45,7 @@
         { "id": "lateral-raises", "name": "Dumbbell Lateral Raises", "sets": 4, "repsTarget": 12, "repsRange": "12-15", "weight": 10, "unit": "kg", "image": "icons/exercises/dumbbell-lateral-raises.png" },
         { "id": "incline-bench", "name": "Dumbbell Incline Bench Press", "sets": 3, "repsTarget": 10, "repsRange": "8-10", "weight": 20, "unit": "kg", "image": "icons/exercises/dumbbell-incline-bench-press.png" },
         { "id": "weighted-dips", "name": "Weighted Dips", "sets": 4, "repsTarget": 10, "repsRange": "8-10", "weight": 10, "unit": "kg", "image": "icons/exercises/weighted-dips.png" },
-        { "id": "knee-raises-c", "name": "Abs - Weighted Knee Raises", "sets": 3, "repsTarget": 10, "repsRange": "10", "weight": 12, "unit": "kg", "image": "icons/exercises/abs-weighted-knee-raises.png" }
+        { "id": "knee-raises-b", "name": "Abs - Weighted Knee Raises", "sets": 3, "repsTarget": 10, "repsRange": "10", "weight": 12, "unit": "kg", "image": "icons/exercises/abs-weighted-knee-raises.png" }
       ]
     },
     {

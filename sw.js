@@ -1,4 +1,4 @@
-const CACHE_NAME = 'workout-cache-v6';
+const CACHE_NAME = 'workout-cache-v7';
 
 const PRECACHE_URLS = [
   './',
@@ -11,8 +11,8 @@ const PRECACHE_URLS = [
   'icons/icon-192.png',
   'icons/icon-512.png',
   'icons/icon-512-maskable.png',
-  'icons/exercises/barbell-back-squat.png',
-  'icons/exercises/dumbbell-standing-calf-raises.png',
+  'icons/exercises/dumbbell-squat.png',
+  'icons/exercises/standing-calf-raises.png',
   'icons/exercises/dumbbell-bulgarian-split-squat.png',
   'icons/exercises/abs-leg-raises.png',
   'icons/exercises/dumbbell-row.png',
